@@ -1,1 +1,51 @@
+import java.util.Scanner;
 
+public class TextAdventureGame {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Text Adventure Game!");
+
+        System.out.println("You are on a quest to find a hidden treasure.");
+        System.out.println("You find yourself standing in front of a dark cave.");
+        System.out.println("Do you want to enter the cave? (yes/no)");
+        String choice = scanner.nextLine();
+
+        if (choice.equalsIgnoreCase("yes")) {
+            exploreCave(scanner);
+        } else {
+            System.out.println("You decide not to enter the cave. Game over!");
+        }
+    }
+
+    public static void exploreCave(Scanner scanner) {
+        System.out.println("You cautiously enter the cave and see two paths diverging ahead.");
+        System.out.println("Do you want to go left or right?");
+        String direction = scanner.nextLine();
+
+        if (direction.equalsIgnoreCase("left")) {
+            System.out.println("You encounter a fierce dragon blocking your path!");
+            System.out.println("Do you want to fight or run away?");
+            String action = scanner.nextLine();
+            if (action.equalsIgnoreCase("fight")) {
+                System.out.println("You bravely fight the dragon and defeat it!");
+                System.out.println("Congratulations! You found the treasure!");
+            } else {
+                System.out.println("You run away from the dragon but get lost in the cave. Game over!");
+            }
+        } else if (direction.equalsIgnoreCase("right")) {
+            System.out.println("You walk down the right path and find a locked door.");
+            System.out.println("Do you want to try to pick the lock or search for a key?");
+            String action = scanner.nextLine();
+            if (action.equalsIgnoreCase("pick the lock")) {
+                System.out.println("You successfully pick the lock and enter the treasure room!");
+                System.out.println("Congratulations! You found the treasure!");
+            } else {
+                System.out.println("You search for a key but find none. Game over!");
+            }
+        } else {
+            System.out.println("Invalid choice. Please enter 'left' or 'right'.");
+            exploreCave(scanner);
+        }
+    }
+}
